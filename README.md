@@ -32,8 +32,16 @@ Run `docker compose up -d` in project root for the first time. This will create 
 
 ## Add a new service
 
-- Create a new folder in the root of the project. Add a `Dockerfile` and a `docker-compose.yml` file. The `docker-compose.yml` file should be similar to the one in the `home` folder.
-- Google Node js (insert favourite stack jargon) Dockerfile to find a nice example of Node js Dockerfile build file.
+- Create a new folder in the root of the project. Add a `Dockerfile` to this new folder.
+- Update the `docker-compose.yml` with its configs, should be similar to the one in the `home` folder and home configs.
+- Google NodeJS Docker(insert favourite stack jargon) to find a nice example of NodeJS Dockerfile to build from.
+  
+  ```dockerfile
+  FROM nginx:alpine
+  COPY . /usr/share/nginx/html
+  ```
+  
+- that example will build a basic nginx container with the contents of the current folder and server a static website.
 - Push to github and the Github Action will deploy the new service to the server.
 
 log onto server and run `docker compose up -d --build` to start the new service. (this part can also be automated with some bash script 🥸)
