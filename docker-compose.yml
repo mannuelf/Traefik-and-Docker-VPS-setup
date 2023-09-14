@@ -1,0 +1,103 @@
+version: "3"
+
+services:
+  traefik:
+    image: "traefik:v3.0"
+    container_name: "traefik"
+    command:
+      - --accesslog=true
+      - --api.dashboard=true
+      - --certificatesresolvers.myresolver.acme.email=your@email.com
+      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.myresolver.acme.tlschallenge=true
+      - --entrypoints.web.address=:80
+      - --entryPoints.web.http.redirections.entrypoint.scheme=https
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.websecure.asDefault=true
+      - --entrypoints.websecure.http.tls.certresolver=myresolver
+      - --log.level=INFO
+      - --providers.docker.exposedByDefault=false
+      - --providers.docker.network=web
+      - --providers.file.filename=/traefik_dynamic.toml
+      #- --accesslog.filepath=/var/log/traefik-access.log
+      #- --log.filepath=/var/log/traefik.log
+    labels:
+      - traefik.enable=true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "letsencrypt:/letsencrypt"
+      - "./traefik_dynamic.toml:/traefik_dynamic.toml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - web
+
+  home:
+    build:
+      context: ./home
+      dockerfile: Dockerfile
+    container_name: "home-service"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.home.rule=Host(`www.your-domain.com`)"
+      - "traefik.http.routers.home.entrypoints=websecure"
+      - "traefik.http.routers.home.tls.certresolver=myresolver"
+    networks:
+      - web
+
+  servicea:
+    build:
+      context: ./servicea
+      dockerfile: Dockerfile
+    container_name: service-a
+    environment:
+      - FLASK_ENV=production
+      - DEBUG=false
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.servicea.rule=Host(`servicea.yourdomain.com`)"
+      - "traefik.http.routers.servicea.entrypoints=websecure"
+      - "traefik.http.routers.servicea.tls.certresolver=myresolver"
+    networks:
+      - web
+
+  serviceb:
+    build:
+      context: ./servicea
+      dockerfile: Dockerfile
+    container_name: service-b
+    environment:
+      - FLASK_ENV=production
+      - DEBUG=false
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.serviceb.rule=Host(`serviceb.yourdomain.com`)"
+      - "traefik.http.routers.serviceb.entrypoints=websecure"
+      - "traefik.http.routers.serviceb.tls.certresolver=myresolver"
+    networks:
+      - web
+  
+  whoami:
+    image: "traefik/whoami"
+    container_name: "whoami-service"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.yourdomain.com`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+    external: true
+    name: web
+  internal:
+    external: false
+
+volumes:
+  letsencrypt:
+    name: letsencrypt
