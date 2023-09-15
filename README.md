@@ -6,9 +6,15 @@ How I host [WWW.THEMWEBS.ME](https://www.themwebs.me/) with Traefik and Docker o
 
 ![photo1](.github/diagram.webp)
 
+photo: https://traefik.io/traefik/
+
 ![photo3](.github/architecture-overview.webp)
 
+photo: https://traefik.io/traefik/
+
 ![photo2](.github/entrypoints.webp)
+
+photo: https://traefik.io/traefik/
 
 ## Github Action
 
