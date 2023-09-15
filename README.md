@@ -15,7 +15,7 @@ How I host [WWW.THEMWEBS.ME](https://www.themwebs.me/) with Traefik and Docker o
 .github/workflows/deploy.yml
 
 The repo is `rsync'ed` to the server using a Github Action.
-Follow this [guide](https://ze'lwk.com/blog/github-actions-deploy) to understand how it works.
+Follow this [guide](https://zelwk.com/blog/github-actions-deploy) to understand how it works.
 
 ## Dev setup
 
