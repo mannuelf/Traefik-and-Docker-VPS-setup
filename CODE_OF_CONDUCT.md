@@ -61,8 +61,9 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-9pd5r3wqq@mozmail.com.
+reported to the community leaders responsible for enforcement at Mannuel Ferreira
+9pd5r3wqq@mozmail.com that email is a relay https://relay.firefox.com/ email, it forwards to my private gmail.
+
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
