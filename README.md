@@ -84,3 +84,8 @@ curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
      -H "Authorization: Bearer CF_DNS_API_TOKEN" \
      -H "Content-Type:application/json"
 ```
+
+## TODO
+
+- run rootless containers
+- investigate Podman for orchestration on localhost 
