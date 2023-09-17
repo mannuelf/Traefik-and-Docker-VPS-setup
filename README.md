@@ -6,15 +6,15 @@ How I host [WWW.THEMWEBS.ME](https://www.themwebs.me/) with Traefik and Docker o
 
 ![photo1](.github/diagram.webp)
 
-photo: https://traefik.io/traefik/
+photo: <https://traefik.io/traefik/>
 
 ![photo3](.github/architecture-overview.webp)
 
-photo: https://traefik.io/traefik/
+photo: <https://traefik.io/traefik/>
 
 ![photo2](.github/entrypoints.webp)
 
-photo: https://traefik.io/traefik/
+photo: <https://traefik.io/traefik/>
 
 ## Github Action
 
@@ -28,8 +28,14 @@ Follow this [guide on Zellwk blog](https://zellwk.com/blog/github-actions-deploy
 - Install [Docker](https://docs.docker.com/get-docker/)
 - Install [Docker Compose](https://docs.docker.com/compose/install/)
 
-- Each service is a docker container with its own `Dockerfile`. The `docker-compose.yml` file is used to orchestrate the containers from the root of the project. You can host any kind of codebase with this.
-- `home` folder is the homepage. for this VPS. Host your homepage in the `home` folder.
+- Each service is a docker container with its own `Dockerfile`. 
+- The `docker-compose.yml` file is used to orchestrate the containers from the root of the project. You can host any kind of codebase with this.
+- `home` folder is the homepage. for this VPS. It is a static website hosted with nginx.
+- Traefik has a dashboard at `https://monitor.yourdomain.com` this is configured in `traefik_dynamic.toml` file.
+  - username: `addUserName` password: `create a hash with htpasswd`
+  - `htpasswd -nb addUserName mySecurePasswordEnteredManually`
+  - add the hash to the [traefik_dynamic.toml](./traefik_dynamic.toml) file.
+- Host your homepage in the `home` folder.
 - Traefik will route the traffic to the correct container based on the domain name / sub domain name.
 - Traefik will also automatically generate SSL certificates using [Let's Encrypt](https://letsencrypt.org/).
 - Traefik will give you a monitoring dashboard at `https://monitor.yourdomain.com` this is configured in `traefik_dynamic.toml` file.
@@ -88,4 +94,4 @@ curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
 ## TODO
 
 - run rootless containers
-- investigate Podman for orchestration on localhost 
+- investigate Podman for orchestration on localhost

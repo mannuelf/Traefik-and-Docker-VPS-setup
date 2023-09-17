@@ -1,10 +1,10 @@
 [http.middlewares.simpleAuth.basicAuth]
   users = [
-    "ADD YOUR SECRET HERE"
+    "admin:$apr1$futE7qd5$CWn820MIlYZm4RILGBlB0/"
   ]
 
 [http.routers.api]
-  rule = "Host(`monitor.your-domain.com`)"
+  rule = "Host(`monitor.localhost`)"
   entrypoints = ["websecure"]
   middlewares = ["simpleAuth"]
   service = "api@internal"
