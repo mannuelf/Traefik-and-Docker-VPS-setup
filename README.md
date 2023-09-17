@@ -1,5 +1,7 @@
 # THEM WEBS VPS
 
+[🍴 FORK repo](https://github.com/mannuelf/them-webs-vps/fork) so you get updates when they happen.
+
 Single VPS deployment using [Traefik](https://traefik.io/traefik/).
 
 How I host [WWW.THEMWEBS.ME](https://www.themwebs.me/) with Traefik and Docker on a single VPS and Cloudflare DNS.
