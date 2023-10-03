@@ -97,3 +97,5 @@ curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
 
 - run rootless containers
 - investigate Podman for orchestration on localhost
+- add environmet variables so that you can run a local instance of the production instance.
+- make scripts automate some of the setup
