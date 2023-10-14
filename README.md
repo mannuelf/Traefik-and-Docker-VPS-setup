@@ -30,7 +30,7 @@ Follow this [guide on Zellwk blog](https://zellwk.com/blog/github-actions-deploy
 - Install [Docker](https://docs.docker.com/get-docker/)
 - Install [Docker Compose](https://docs.docker.com/compose/install/)
 
-- Each service is a docker container with its own `Dockerfile`. 
+- Each service is a docker container with its own `Dockerfile`.
 - The `docker-compose.yml` file is used to orchestrate the containers from the root of the project. You can host any kind of codebase with this.
 - `home` folder is the homepage. for this VPS. It is a static website hosted with nginx.
 - Traefik has a dashboard at `https://monitor.yourdomain.com` this is configured in `traefik_dynamic.toml` file.
