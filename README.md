@@ -6,17 +6,7 @@ Single VPS deployment using [Traefik](https://traefik.io/traefik/).
 
 How I host [WWW.THEMWEBS.ME](https://www.themwebs.me/) with Traefik and Docker on a single VPS and Cloudflare DNS.
 
-![photo1](.github/diagram.webp)
-
-photo: <https://traefik.io/traefik/>
-
-![photo3](.github/architecture-overview.webp)
-
-photo: <https://traefik.io/traefik/>
-
-![photo2](.github/entrypoints.webp)
-
-photo: <https://traefik.io/traefik/>
+![photo1](https://res.cloudinary.com/mannuel/image/upload/v1698482073/mfcom/treafik-flow.png)
 
 ## Github Action
 
