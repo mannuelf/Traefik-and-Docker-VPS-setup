@@ -1,4 +1,4 @@
-# THEM WEBS VPS
+# Traefik, Docker, VPS setup
 
 [🍴 FORK repo](https://github.com/mannuelf/them-webs-vps/fork) so you get updates when they happen.
 
