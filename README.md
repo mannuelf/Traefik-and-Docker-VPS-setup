@@ -1,3 +1,5 @@
+> This is still a fair enough approach but if you want something more automated I recommend [dokploy.com](https://dokploy.com) bare in mind it will create more containers so it will require more resources 
+
 # Traefik, Docker, VPS setup
 
 [🍴 FORK repo](https://github.com/mannuelf/them-webs-vps/fork) so you get updates when they happen.
